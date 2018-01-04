@@ -1,0 +1,174 @@
+﻿<Page
+    x:Class="VerifId.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VerifId"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="TxtTitle"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="3"
+                   Text="VerifId: Video Access Control for '"
+                   FontSize="24"
+                   HorizontalAlignment="Center"
+                   Margin="10" />
+
+        <StackPanel Grid.Column="0"
+                    Grid.Row="1"
+                    Background="LightBlue">
+            <TextBlock Text="Camera Initialization"
+                       FontSize="16"
+                       HorizontalAlignment="Center"
+                       Margin="10" />
+
+            <Button x:Name="BtnInitCam"
+                    Content="Initialize Camera"
+                    Click="BtnInitCam_Click"
+                    HorizontalAlignment="Center"
+                    Margin="10" />
+
+            <StackPanel x:Name="SpPreview"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <TextBlock Text="Preview"
+                           Height="30"
+                           HorizontalAlignment="Center"
+                           Margin="0,20,0,0" />
+                
+                <Canvas Width="200"
+                        Height="150"
+                        Background="Gray">
+                    <CaptureElement x:Name="PreviewElement"
+                                    Width="200"
+                                    Height="150"
+                                    HorizontalAlignment="Left" />
+                </Canvas>
+
+                <Button x:Name="BtnExitCam"
+                    Content="Exit Camera"
+                        Click="BtnExitCam_Click"
+                    HorizontalAlignment="Center"
+                    Margin="10" />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1"
+                    Background="LightGreen">
+            <TextBlock Text="Manage Persons"
+                       FontSize="16"
+                       HorizontalAlignment="Center"
+                       Margin="10" />
+
+            <StackPanel x:Name="SpManagePersons">
+                <ComboBox x:Name="CbPersons"
+                          Width="200"
+                          SelectionChanged="CbPersons_SelectionChanged"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center" />
+
+                <TextBlock x:Name="txtTrainingStatus"
+                           Text="Training status here"
+                           FontSize="14"
+                           Margin="30"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" />
+
+                <StackPanel x:Name="SpPicture1"
+                            Margin="10"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                    <Canvas Width="200"
+                            Height="150"
+                            Background="Gray">
+                        <Image x:Name="ImgCaptured1"
+                               Width="200"
+                               Height="150" />
+                    </Canvas>
+
+                    <Button x:Name="BtnTakePic1"
+                            Content="Take Picture #1"
+                            Click="BtnTakePic1_Click"
+                            Margin="10"
+                            HorizontalAlignment="Center" />
+                </StackPanel>
+
+                <StackPanel x:Name="SpPicture2"
+                            Margin="10"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                    <Canvas Width="200"
+                            Height="150"
+                            Background="Gray">
+                        <Image x:Name="ImgCaptured2"
+                               Width="200"
+                               Height="150" />
+                    </Canvas>
+
+                    <Button x:Name="BtnTakePic2"
+                            Content="Take Picture #2"
+                            Click="BtnTakePic2_Click"
+                            Margin="10"
+                            HorizontalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2"
+                    Grid.Row="1"
+                    Background="LightCoral">
+            <TextBlock Text="Verify Id"
+                       FontSize="16"
+                       HorizontalAlignment="Center"
+                       Margin="10" />
+
+            <StackPanel x:Name="SpAccessControl"
+                        Margin="10"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Canvas Width="200"
+                        Height="150"
+                        Background="Gray"
+                        Visibility="Visible">
+                    <Image x:Name="ImgAccessRequestFor"
+                           Width="200"
+                           Height="150" />
+                </Canvas>
+
+                <Button x:Name="BtnAccessRequest"
+                        Content="Request Access"
+                        Click="BtnAccessRequest_Click"
+                        Margin="10"
+                        HorizontalAlignment="Center" />
+                
+                <TextBlock x:Name="TxtAccessStatus"
+                           Text="Thank you! User"
+                           Margin="10"
+                           HorizontalAlignment="Center"
+                           FontSize="16"/>
+                
+                <Rectangle x:Name="RectAccessStatus"
+                           Margin="0,20,0,0"
+                           Fill="Gray"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Width="100"
+                           Height="100" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
